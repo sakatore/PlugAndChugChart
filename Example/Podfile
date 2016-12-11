@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PlugAndChugChart_Example' do
+  pod 'PlugAndChugChart', :path => '../'
+
+  target 'PlugAndChugChart_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
