@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/PlugAndChugChart'
+  s.homepage         = 'https://github.com/Kyohei-Sakai/PlugAndChugChart'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kyohei-Sakai' => 'nico_f00tb@yahoo.co.jp' }
