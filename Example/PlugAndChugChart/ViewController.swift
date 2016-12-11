@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdChartView: PlugAndChugChart!
     
     
-    let chartData: [CGFloat] = [30, 50, 19, 22, 46, 10, 1, 66, 35, 49]
+    let chartData: [CGFloat] = [30, 50, 19, 22, 46, 10, 1, 66, 35, 49, 38, 17]
     var dataLabels: [String] {
         var labels: [String] = []
         for index in 0..<chartData.count {
