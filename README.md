@@ -1,6 +1,8 @@
 # PlugAndChugChart
 
-Simple chart written in Swift.
+PlugAndChugChart is simple scrollable chart written in Swift.
+
+<p align="center"><img src="./ScreenCapture/screenshot.png" width="300"></p>
 
 # Features
 
