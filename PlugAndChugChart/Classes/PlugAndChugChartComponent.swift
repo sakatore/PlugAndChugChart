@@ -10,15 +10,15 @@ import UIKit
 
 // MARK: - PlugAndChugChartComponent Class
 
-class PlugAndChugChartComponent: UIView {
+public class PlugAndChugChartComponent: UIView {
     // MARK: - Pablic properties
     
-    var endPoint: CGPoint? {
+    public var endPoint: CGPoint? {
         guard let toY = toY else { return nil }
         return CGPoint(x: x, y: toY)
     }
     
-    var comparisonValueY: CGFloat? {
+    public var comparisonValueY: CGFloat? {
         guard let comparisonValueHeight = comparisonValueHeight, let y = y else { return nil }
         return y - comparisonValueHeight
     }
@@ -139,7 +139,7 @@ class PlugAndChugChartComponent: UIView {
         self.chart?.components.append(self)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         self.chartValue = 0
         self.layout = nil
         super.init(coder: aDecoder)
@@ -148,7 +148,7 @@ class PlugAndChugChartComponent: UIView {
     
     // MARK: - Override
     
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         guard let style = style else { return }
         
         if let y = y, let endPoint = endPoint {
@@ -168,7 +168,7 @@ class PlugAndChugChartComponent: UIView {
     // MARK: - Public methods
     
     // return draw point.y
-    func getEndPointForStartPoint(value: CGFloat?) -> CGFloat? {
+    public func getEndPointForStartPoint(value: CGFloat?) -> CGFloat? {
         guard let value = value, let maxBarAreaHeight = maxBarAreaHeight, let barAreaHeight = barAreaHeight, let y = y else { return nil }
         
         let averageValueHeight = barAreaHeight * value / maxBarAreaHeight

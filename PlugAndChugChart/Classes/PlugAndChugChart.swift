@@ -54,24 +54,24 @@ public class PlugAndChugChart: UIScrollView {
     
     // MARK: - Public properties
     
-    var components: [PlugAndChugChartComponent] = []
+    public var components: [PlugAndChugChartComponent] = []
     
-    var chartValues: [CGFloat] = []
-    var xAxisLabels: [String] = []
-    var minimumDate: Date?
+    public var chartValues: [CGFloat] = []
+    public var xAxisLabels: [String] = []
+    public var minimumDate: Date?
     
-    var style: PlugAndChugChartStyle = .bar
-    var dateStyle: PlugAndChugChartDateStyle = .month
-    var dataType: PlugAndChugChartDataType = .normal
-    var contentOffsetControll: PlugAndChugChartContetOffset = .minimumDate
-    var dataLabelType: PlugAndChugChartDataLabelType = .default
+    public var style: PlugAndChugChartStyle = .bar
+    public var dateStyle: PlugAndChugChartDateStyle = .month
+    public var dataType: PlugAndChugChartDataType = .normal
+    public var contentOffsetControll: PlugAndChugChartContetOffset = .minimumDate
+    public var dataLabelType: PlugAndChugChartDataLabelType = .default
     
-    var componentLayout = ComponentLayoutOptions()
-    var layout = LayoutOptions()
+    public var componentLayout = ComponentLayoutOptions()
+    public var layout = LayoutOptions()
     
-    var maxChartValue: CGFloat? { return chartValues.max() }
+    public var maxChartValue: CGFloat? { return chartValues.max() }
     
-    var dateInterval: Int = 1 {
+    public var dateInterval: Int = 1 {
         willSet {
             if newValue < 1 { return }
         }
@@ -80,9 +80,9 @@ public class PlugAndChugChart: UIScrollView {
     
     // MARK: Setting ComparisonValue
     
-    @IBInspectable var comparisonValue: CGFloat = 0
+    @IBInspectable public var comparisonValue: CGFloat = 0
     
-    @IBInspectable var comparisonValueIsHidden: Bool = false {
+    @IBInspectable public var comparisonValueIsHidden: Bool = false {
         didSet {
             comparisonValueLabel.isHidden = comparisonValueIsHidden
             comparisonValueLineView.isHidden = comparisonValueIsHidden
@@ -90,11 +90,11 @@ public class PlugAndChugChart: UIScrollView {
     }
     
     // MARK: Setting Average Value
-    var averageValue: CGFloat? {
+    public var averageValue: CGFloat? {
         return chartValues.reduce(0, +) / CGFloat(chartValues.count)
     }
     
-    @IBInspectable var averageValueIsHidden: Bool = false {
+    @IBInspectable public var averageValueIsHidden: Bool = false {
         didSet {
             averageLabel.isHidden = averageValueIsHidden
             averageLineView.isHidden = averageValueIsHidden
@@ -108,7 +108,7 @@ public class PlugAndChugChart: UIScrollView {
         super.init(frame: frame)
     }
     
-    convenience init(frame: CGRect, chartValues: [CGFloat], minimumDate: Date, style: PlugAndChugChartStyle = .bar) {
+    convenience public init(frame: CGRect, chartValues: [CGFloat], minimumDate: Date, style: PlugAndChugChartStyle = .bar) {
         self.init(frame: frame)
         self.chartValues = chartValues
         self.minimumDate = minimumDate
@@ -380,7 +380,7 @@ public class PlugAndChugChart: UIScrollView {
     
     // MARK: - Struct
     
-    struct ComponentLayoutOptions {
+    public struct ComponentLayoutOptions {
         // MARK: Shared
         
         var ChartBackgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
@@ -416,7 +416,7 @@ public class PlugAndChugChart: UIScrollView {
         
     }
     
-    struct LayoutOptions {
+    public struct LayoutOptions {
         // MARK: Comparison Value
         
         var comparisonLabelBackgroundColor = UIColor.lightGray.withAlphaComponent(0.7)

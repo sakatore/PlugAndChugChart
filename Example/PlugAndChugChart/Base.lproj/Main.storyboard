@@ -21,25 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fJ-LJ-Hu7" customClass="GraghView" customModule="PlugAndChugChart">
-                                <rect key="frame" x="0.0" y="34" width="375" height="169"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fJ-LJ-Hu7" customClass="PlugAndChugChart" customModule="PlugAndChugChart">
+                                <rect key="frame" x="0.0" y="34" width="375" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v3i-7K-lP9" customClass="GraghView" customModule="PlugAndChugChart">
-                                <rect key="frame" x="0.0" y="211" width="375" height="222"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CV6-as-81p" customClass="PlugAndChugChart" customModule="PlugAndChugChart">
+                                <rect key="frame" x="0.0" y="441" width="375" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CV6-as-81p" customClass="GraghView" customModule="PlugAndChugChart">
-                                <rect key="frame" x="0.0" y="441" width="375" height="226"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v3i-7K-lP9" customClass="PlugAndChugChart" customModule="PlugAndChugChart">
+                                <rect key="frame" x="0.0" y="253" width="375" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="firstGraghView" destination="2fJ-LJ-Hu7" id="9GH-iv-mgx"/>
-                        <outlet property="secondGraghView" destination="v3i-7K-lP9" id="CCC-Tr-T7D"/>
-                        <outlet property="thirdGraghView" destination="CV6-as-81p" id="Nph-OL-NDB"/>
+                        <outlet property="firstChartView" destination="2fJ-LJ-Hu7" id="7Pk-f5-ha3"/>
+                        <outlet property="secondChartView" destination="v3i-7K-lP9" id="ZCO-Va-0hS"/>
+                        <outlet property="thirdChartView" destination="CV6-as-81p" id="dbh-9R-bl2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
