@@ -27,3 +27,4 @@ Kyohei-Sakai, nico_f00tb@yahoo.co.jp
 ## License
 
 PlugAndChugChart is available under the MIT license. See the LICENSE file for more info.
+# PlugAndChugChart
