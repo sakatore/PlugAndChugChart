@@ -8,9 +8,9 @@
 
 import UIKit
 
-// MARK: - GraghViewComponent Class
+// MARK: - PlugAndChugChartComponent Class
 
-class GraghViewComponent: UIView {
+class PlugAndChugChartComponent: UIView {
     // MARK: - Pablic properties
     
     var endPoint: CGPoint? {
@@ -27,23 +27,23 @@ class GraghViewComponent: UIView {
     
     // MARK: Shared
     
-    private var graghView: GraghView?
-    private var style: GraghStyle?
-    private var dateStyle: GraghViewDateStyle?
-    private var dataType: GraghViewDataType?
+    private var chart: PlugAndChugChart?
+    private var style: PlugAndChugChartStyle?
+    private var dateStyle: PlugAndChugChartDateStyle?
+    private var dataType: PlugAndChugChartDataType?
     
-    private let layout: GraghView.ComponentLayoutOptions?
+    private let layout: PlugAndChugChart.ComponentLayoutOptions?
     
-    private var graghValue: CGFloat
-    private var maxGraghValue: CGFloat? { return graghView?.maxGraghValue }
+    private var chartValue: CGFloat
+    private var maxChartValue: CGFloat? { return chart?.maxChartValue }
     
     private var labelText: String?
     private var date: Date?
     private var comparisonValue: CGFloat?
     
     private var maxBarAreaHeight: CGFloat? {
-        guard let maxGraghValue = maxGraghValue, let layout = layout else { return nil }
-        return maxGraghValue / layout.maxGraghValueRate
+        guard let maxChartValue = maxChartValue, let layout = layout else { return nil }
+        return maxChartValue / layout.maxChartValueRate
     }
     
     private var barAreaHeight: CGFloat? {
@@ -53,10 +53,9 @@ class GraghViewComponent: UIView {
     
     private var barHeigth: CGFloat? {
         guard let maxBarAreaHeight = maxBarAreaHeight, let barAreaHeight = barAreaHeight else { return nil }
-        return barAreaHeight * graghValue / maxBarAreaHeight
+        return barAreaHeight * chartValue / maxBarAreaHeight
     }
     
-    // barの終点のY座標・roundのposition
     private var toY: CGFloat? {
         guard let barHeigth = barHeigth, let y = y else { return nil }
         return y - barHeigth
@@ -84,9 +83,8 @@ class GraghViewComponent: UIView {
         return frame.width * layout.barWidthRate
     }
     
-    // barの始点のX座標（＝終点のX座標）
     private var x: CGFloat { return frame.width / 2 }
-    // barの始点のY座標
+    
     private var y: CGFloat? {
         guard let barAreaHeight = barAreaHeight, let labelHeight = labelHeight, let isHidden = layout?.valueLabelIsHidden else { return nil }
         
@@ -108,45 +106,43 @@ class GraghViewComponent: UIView {
     // MARK: - Initializers
     
     // date label
-    init(frame: CGRect, graghValue: CGFloat, date: Date, comparisonValue: CGFloat, target graghView: GraghView? = nil) {
-        self.graghView = graghView
-        self.style = graghView?.style
-        self.dateStyle = graghView?.dateStyle
-        self.dataType = graghView?.dataType
-        self.layout = graghView?.componentLayout
+    init(frame: CGRect, chartValue: CGFloat, date: Date, comparisonValue: CGFloat, target chart: PlugAndChugChart? = nil) {
+        self.chart = chart
+        self.style = chart?.style
+        self.dateStyle = chart?.dateStyle
+        self.dataType = chart?.dataType
+        self.layout = chart?.componentLayout
         
-        self.graghValue = graghValue
+        self.chartValue = chartValue
         self.date = date
         self.comparisonValue = comparisonValue
         
         super.init(frame: frame)
-        self.backgroundColor = layout?.GraghBackgroundColor
-        self.graghView?.components.append(self)
+        self.backgroundColor = layout?.ChartBackgroundColor
+        self.chart?.components.append(self)
     }
     
     // string label (default init)
-    init(frame: CGRect, graghValue: CGFloat, labelText: String, comparisonValue: CGFloat, target graghView: GraghView? = nil) {
-        self.graghView = graghView
-        self.style = graghView?.style
-        self.dateStyle = graghView?.dateStyle
-        self.dataType = graghView?.dataType
-        self.layout = graghView?.componentLayout
+    init(frame: CGRect, chartValue: CGFloat, labelText: String, comparisonValue: CGFloat, target chart: PlugAndChugChart? = nil) {
+        self.chart = chart
+        self.style = chart?.style
+        self.dateStyle = chart?.dateStyle
+        self.dataType = chart?.dataType
+        self.layout = chart?.componentLayout
         
-        self.graghValue = graghValue
+        self.chartValue = chartValue
         self.labelText = labelText
         self.comparisonValue = comparisonValue
         
         super.init(frame: frame)
-        self.backgroundColor = layout?.GraghBackgroundColor
-        self.graghView?.components.append(self)
+        self.backgroundColor = layout?.ChartBackgroundColor
+        self.chart?.components.append(self)
     }
     
-    // storyboardで生成する時
     required init?(coder aDecoder: NSCoder) {
-        self.graghValue = 0
+        self.chartValue = 0
         self.layout = nil
         super.init(coder: aDecoder)
-        //        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -156,7 +152,6 @@ class GraghViewComponent: UIView {
         guard let style = style else { return }
         
         if let y = y, let endPoint = endPoint {
-            // Graghを描画
             switch style {
             case .bar: drawBar(from: CGPoint(x: x, y: y), to: endPoint)
             case .round: drawRound(point: endPoint)
@@ -238,7 +233,6 @@ class GraghViewComponent: UIView {
     
     private func drawJaggy(point: CGPoint, otherPoint1: CGPoint, otherPoint2: CGPoint) {
         let jaggyPath = UIBezierPath()
-        // add path from left point
         jaggyPath.move(to: otherPoint1)
         jaggyPath.addLine(to: point)
         jaggyPath.addLine(to: otherPoint2)
@@ -254,7 +248,7 @@ class GraghViewComponent: UIView {
         let overLabel: UILabel = UILabel()
         overLabel.frame = CGRect(x: 0, y: 0, width: frame.width, height: labelHeight)
         overLabel.center = CGPoint(x: x, y: labelHeight / 2)
-        overLabel.text = overTextFormatter(from: graghValue)
+        overLabel.text = overTextFormatter(from: chartValue)
         overLabel.textAlignment = .center
         overLabel.font = overLabel.font.withSize(10)
         overLabel.backgroundColor = layout.labelBackgroundColor
@@ -263,13 +257,13 @@ class GraghViewComponent: UIView {
     }
     
     private func drawUnderLabel() {
-        guard let labelHeight = labelHeight, let graghView = graghView else { return }
+        guard let labelHeight = labelHeight, let chart = chart else { return }
         
         let underLabel: UILabel = UILabel()
         underLabel.frame = CGRect(x: 0, y: 0, width: frame.width, height: labelHeight)
         underLabel.center = CGPoint(x: x, y: frame.height - labelHeight / 2)
         
-        switch graghView.dataLabelType {
+        switch chart.dataLabelType {
         case .default:
             underLabel.text = labelText
         case .date:

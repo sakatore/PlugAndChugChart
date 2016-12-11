@@ -10,30 +10,30 @@ import UIKit
 
 // MARK: - Enumeration
 
-public enum GraghStyle {
+public enum PlugAndChugChartStyle {
     case bar, round, jaggy
 }
 
-public enum GraghViewDateStyle {
+public enum PlugAndChugChartDateStyle {
     case year, month, day, hour, minute, second
 }
 
-public enum GraghViewDataType {
+public enum PlugAndChugChartDataType {
     case normal, yen
 }
 
-public enum GraghViewContetOffset {
+public enum PlugAndChugChartContetOffset {
     case minimumDate, maximizeDate
 }
 
-public enum GraghViewDataLabelType {
+public enum PlugAndChugChartDataLabelType {
     case `default`, date
 }
 
 
-// MARK: - GraghView Class
+// MARK: - PlugAndChugChart Class
 
-public class GraghView: UIScrollView {
+public class PlugAndChugChart: UIScrollView {
     
     // MARK: - Private properties
     
@@ -54,35 +54,23 @@ public class GraghView: UIScrollView {
     
     // MARK: - Public properties
     
-    var components: [GraghViewComponent] = []
+    var components: [PlugAndChugChartComponent] = []
     
-    // データ配列
-    var graghValues: [CGFloat] = []
-    // グラフのラベルに表示する情報
+    var chartValues: [CGFloat] = []
     var xAxisLabels: [String] = []
     var minimumDate: Date?
     
+    var style: PlugAndChugChartStyle = .bar
+    var dateStyle: PlugAndChugChartDateStyle = .month
+    var dataType: PlugAndChugChartDataType = .normal
+    var contentOffsetControll: PlugAndChugChartContetOffset = .minimumDate
+    var dataLabelType: PlugAndChugChartDataLabelType = .default
     
-    // garghの種類
-    var style: GraghStyle = .bar
-    // under labelに表示するDate間隔
-    var dateStyle: GraghViewDateStyle = .month
-    // over labelに表示する値の属性
-    var dataType: GraghViewDataType = .normal
-    // グラフの前から表示するか、後ろからか
-    var contentOffsetControll: GraghViewContetOffset = .minimumDate
-    // under labelを生成する際に参照する情報
-    var dataLabelType:GraghViewDataLabelType = .default
-    
-    
-    // layoutに関するデータのまとまり(struct)
     var componentLayout = ComponentLayoutOptions()
     var layout = LayoutOptions()
     
+    var maxChartValue: CGFloat? { return chartValues.max() }
     
-    // データの中の最大値 -> これをもとにBar表示領域の高さを決める
-    var maxGraghValue: CGFloat? { return graghValues.max() }
-    // under label のdate間隔 default is 1
     var dateInterval: Int = 1 {
         willSet {
             if newValue < 1 { return }
@@ -103,7 +91,7 @@ public class GraghView: UIScrollView {
     
     // MARK: Setting Average Value
     var averageValue: CGFloat? {
-        return graghValues.reduce(0, +) / CGFloat(graghValues.count)
+        return chartValues.reduce(0, +) / CGFloat(chartValues.count)
     }
     
     @IBInspectable var averageValueIsHidden: Bool = false {
@@ -114,25 +102,20 @@ public class GraghView: UIScrollView {
     }
     
     
-    // Delegate
-    //    var barDelegate: BarGraghViewDelegate?
-    
-    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    convenience init(frame: CGRect, graghValues: [CGFloat], minimumDate: Date, style: GraghStyle = .bar) {
+    convenience init(frame: CGRect, chartValues: [CGFloat], minimumDate: Date, style: PlugAndChugChartStyle = .bar) {
         self.init(frame: frame)
-        self.graghValues = graghValues
+        self.chartValues = chartValues
         self.minimumDate = minimumDate
         self.style = style
-        loadGraghView()
+        loadChart()
     }
     
-    // storyboardで生成する時
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -143,7 +126,6 @@ public class GraghView: UIScrollView {
     override public var contentOffset: CGPoint {
         didSet {
             if !comparisonValueIsHidden {
-                // ComparisonValueLabelをスクロールとともに追従させる
                 comparisonValueLabel.frame.origin.x = contentOffset.x
             }
         }
@@ -177,10 +159,9 @@ public class GraghView: UIScrollView {
     }
     
     private func drawComparisonValueLine(from statPoint: CGPoint, to endPoint: CGPoint) {
-        // GraghViewと同じ大きさのViewを用意
         comparisonValueLineView.frame = CGRect(origin: .zero, size: contentSize)
         comparisonValueLineView.backgroundColor = UIColor.clear
-        // Lineを描画
+        
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)
         let linePath = UIBezierPath()
         linePath.lineCapStyle = .round
@@ -191,7 +172,7 @@ public class GraghView: UIScrollView {
         linePath.stroke()
         comparisonValueLineView.layer.contents = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
         UIGraphicsEndImageContext()
-        // GraghViewに重ねる
+        
         addSubview(comparisonValueLineView)
     }
     
@@ -204,7 +185,6 @@ public class GraghView: UIScrollView {
         addSubview(comparisonValueLabel)
     }
     
-    // over Label's text format
     private func overTextFormatter(from value: CGFloat) -> String {
         switch dataType {
         case .normal: return String(describing: value)
@@ -219,11 +199,10 @@ public class GraghView: UIScrollView {
         
         guard let firstComponent = components.first, let startPoint = firstComponent.endPoint else { return }
         
-        // GraghViewと同じ大きさのViewを用意
         roundPathView.frame = CGRect(origin: .zero, size: contentSize)
         roundPathView.backgroundColor = UIColor.clear
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)
-        // Lineを描画
+        
         let path = UIBezierPath()
         path.move(to: startPoint)
         for index in 1..<components.count {
@@ -236,7 +215,7 @@ public class GraghView: UIScrollView {
         path.stroke()
         roundPathView.layer.contents = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
         UIGraphicsEndImageContext()
-        // GraghViewに重ねる
+        
         addSubview(roundPathView)
     }
     
@@ -251,10 +230,9 @@ public class GraghView: UIScrollView {
     }
     
     private func drawAverageValueLine(from statPoint: CGPoint, to endPoint: CGPoint) {
-        // GraghViewと同じ大きさのViewを用意
         averageLineView.frame = CGRect(origin: .zero, size: contentSize)
         averageLineView.backgroundColor = UIColor.clear
-        // Lineを描画
+        
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)
         let linePath = UIBezierPath()
         linePath.lineCapStyle = .round
@@ -265,7 +243,7 @@ public class GraghView: UIScrollView {
         linePath.stroke()
         averageLineView.layer.contents = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
         UIGraphicsEndImageContext()
-        // GraghViewに重ねる
+        
         addSubview(averageLineView)
     }
     
@@ -281,7 +259,7 @@ public class GraghView: UIScrollView {
     
     // MARK: - Public methods
     
-    public func loadGraghView() {
+    public func loadChart() {
         
         switch dataLabelType {
         case .default: drawComponentsOfTextLabel()
@@ -304,12 +282,11 @@ public class GraghView: UIScrollView {
     private func drawComponentsOfTextLabel() {
         contentSize.height = frame.height
         
-        for index in 0..<graghValues.count {
+        for index in 0..<chartValues.count {
             contentSize.width += componentLayout.componentAreaWidth
-            // barの表示をずらしていく
             let rect = CGRect(origin: CGPoint(x: CGFloat(index) * componentLayout.componentAreaWidth, y: 0), size: CGSize(width: componentLayout.componentAreaWidth, height: frame.height))
             
-            let component = GraghViewComponent(frame: rect, graghValue: graghValues[index], labelText: xAxisLabels[index], comparisonValue: comparisonValue, target: self)
+            let component = PlugAndChugChartComponent(frame: rect, chartValue: chartValues[index], labelText: xAxisLabels[index], comparisonValue: comparisonValue, target: self)
             
             addSubview(component)
             
@@ -322,14 +299,14 @@ public class GraghView: UIScrollView {
         let calendar = Calendar(identifier: .gregorian)
         contentSize.height = frame.height
         
-        for index in 0..<graghValues.count {
+        for index in 0..<chartValues.count {
             contentSize.width += componentLayout.componentAreaWidth
             
             if let minimumDate = minimumDate, let date = calendar.date(byAdding: dateToMinimumDate(addComponentValue: index), to: minimumDate) {
-                // barの表示をずらしていく
+                
                 let rect = CGRect(origin: CGPoint(x: CGFloat(index) * componentLayout.componentAreaWidth, y: 0), size: CGSize(width: componentLayout.componentAreaWidth, height: frame.height))
                 
-                let component = GraghViewComponent(frame: rect, graghValue: graghValues[index], date: date, comparisonValue: comparisonValue, target: self)
+                let component = PlugAndChugChartComponent(frame: rect, chartValue: chartValues[index], date: date, comparisonValue: comparisonValue, target: self)
                 
                 addSubview(component)
                 
@@ -339,15 +316,14 @@ public class GraghView: UIScrollView {
         }
     }
     
-    public func reloadGraghView() {
-        // GraghViewの初期化
+    public func reloadChart() {
         subviews.forEach { $0.removeFromSuperview() }
         contentSize = .zero
         
-        loadGraghView()
+        loadChart()
     }
     
-    // MARK: Set Gragh Customize Options
+    // MARK: Set Chart Customize Options
     
     public func setComparisonValueLabel(backgroundColor: UIColor) {
         layout.comparisonLabelBackgroundColor = backgroundColor
@@ -357,7 +333,6 @@ public class GraghView: UIScrollView {
         layout.comparisonLineColor = color
     }
     
-    // BarのLayoutProportionはGraghViewから変更する
     public func setComponentArea(width: CGFloat) {
         componentLayout.componentAreaWidth = width
     }
@@ -366,8 +341,8 @@ public class GraghView: UIScrollView {
         componentLayout.barAreaHeightRate = rate
     }
     
-    public func setMaxGraghValue(rate: CGFloat) {
-        componentLayout.maxGraghValueRate = rate
+    public func setMaxChartValue(rate: CGFloat) {
+        componentLayout.maxChartValueRate = rate
     }
     
     public func setBarWidth(rate: CGFloat) {
@@ -382,8 +357,8 @@ public class GraghView: UIScrollView {
         componentLayout.labelBackgroundColor = backgroundcolor
     }
     
-    public func setGragh(backgroundcolor: UIColor) {
-        componentLayout.GraghBackgroundColor = backgroundcolor
+    public func setChart(backgroundcolor: UIColor) {
+        componentLayout.ChartBackgroundColor = backgroundcolor
     }
     
     public func setRoundSize(rate: CGFloat) {
@@ -405,14 +380,14 @@ public class GraghView: UIScrollView {
     
     // MARK: - Struct
     
-    // GraghViewComponentのレイアウトを決定するためのデータ
     struct ComponentLayoutOptions {
         // MARK: Shared
         
+        var ChartBackgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
         // componentAreaHeight / frame.height
         var barAreaHeightRate: CGFloat = 0.8
-        // maxGraghValueRate / maxBarAreaHeight
-        var maxGraghValueRate: CGFloat = 0.8
+        // maxChartValue / maxBarAreaHeight
+        var maxChartValueRate: CGFloat = 0.8
         // component width
         var componentAreaWidth: CGFloat = 50
         // if over label is hidden
@@ -422,18 +397,13 @@ public class GraghView: UIScrollView {
         
         // bar.width / rect.width
         var barWidthRate: CGFloat = 0.5
-        // Bar Color
         var barColor = UIColor.init(red: 1.0, green: 0.7, blue: 0.7, alpha: 1.0)
-        // Label backgroundColor
         var labelBackgroundColor = UIColor.init(white: 0.95, alpha: 1.0)
-        // Gragh backgroundColor
-        var GraghBackgroundColor = UIColor.init(white: 0.9, alpha: 1.0)
         
         // MARK: Only Round
         
         // round size / componentAreaWidth
         var roundSizeRate: CGFloat = 0.1
-        // round color
         var roundColor = UIColor.init(red: 0.7, green: 0.7, blue: 1.0, alpha: 1.0)
         // if round is hidden
         var onlyPathLine: Bool = false
@@ -446,7 +416,6 @@ public class GraghView: UIScrollView {
         
     }
     
-    // GraghView Componentsに付加するViewsのレイアウトを決定するためのデータ
     struct LayoutOptions {
         // MARK: Comparison Value
         
