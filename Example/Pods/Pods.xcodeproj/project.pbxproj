@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		024A7718D04FD188F6583DE2E7AABA6D /* PlugAndChugChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D655D388F67F634B3D5633864ACF1316 /* PlugAndChugChart-dummy.m */; };
 		0EFC9B4A42BCF0507FB43AF098EC3507 /* PlugAndChugChart-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C248BD0BB612F39AFAE061C96F94ABA6 /* PlugAndChugChart-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F764F954C9423B9995045D7ACA4102 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B2E3EA2B96B53CE05BB9597E11DA15 /* ReplaceMe.swift */; };
 		43E520AD60769CA8450829D7479EE37D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		45071DB0FD2EA4F4504F5916B9645D9A /* Pods-PlugAndChugChart_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0D84DA41A0A817F6D77C548A24C938 /* Pods-PlugAndChugChart_Tests-dummy.m */; };
 		5D26D35C9125ABF4CDA74B38328BF108 /* Pods-PlugAndChugChart_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F485116B8984730BD3256132EC204B5 /* Pods-PlugAndChugChart_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0587F3FECA8856666FBAED677F354B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		7F849E791DFD51FA00E937F8 /* PlugAndChugChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F849E781DFD51FA00E937F8 /* PlugAndChugChart.swift */; };
+		7F849E7D1DFD531B00E937F8 /* PlugAndChugChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F849E7C1DFD531B00E937F8 /* PlugAndChugChartComponent.swift */; };
 		D9F58185D57057F3CA4500C526161620 /* Pods-PlugAndChugChart_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BD93DB5D8AA835046AFBB7E63C2F20 /* Pods-PlugAndChugChart_Example-dummy.m */; };
 		DD40033C7B2D1BEA959BB9126F97F083 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		E8520A3A7AA153A2F593FCC419CB1EAC /* Pods-PlugAndChugChart_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C86C09FD02A2E55C752CF6157A875D3 /* Pods-PlugAndChugChart_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,6 +43,8 @@
 		468B700E07A1869151802F0E7650FEFB /* Pods-PlugAndChugChart_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PlugAndChugChart_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		7147D6061471295EA10A5ADB63A452D1 /* Pods-PlugAndChugChart_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PlugAndChugChart_Example-resources.sh"; sourceTree = "<group>"; };
 		786323DC7BC33698A93B088C35497573 /* Pods-PlugAndChugChart_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PlugAndChugChart_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7F849E781DFD51FA00E937F8 /* PlugAndChugChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugAndChugChart.swift; sourceTree = "<group>"; };
+		7F849E7C1DFD531B00E937F8 /* PlugAndChugChartComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugAndChugChartComponent.swift; sourceTree = "<group>"; };
 		873AF61251D258125BF0D0432F969220 /* Pods_PlugAndChugChart_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlugAndChugChart_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96AEE35ED8CB08D41B51385516413475 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		E46E78A748E79D8675529D032CAA7BEA /* Pods_PlugAndChugChart_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlugAndChugChart_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BFA8321EA77FA99C9A57165FEDDDBC /* PlugAndChugChart-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PlugAndChugChart-prefix.pch"; sourceTree = "<group>"; };
 		E9A75696B4C4DEAED41DBB879B6DCE0B /* Pods-PlugAndChugChart_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PlugAndChugChart_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E9B2E3EA2B96B53CE05BB9597E11DA15 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		FAC35DADB76357DE1E5CC5A0F13C13A9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +152,8 @@
 		80F2DF487E052B14F7901E3F5F567769 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E9B2E3EA2B96B53CE05BB9597E11DA15 /* ReplaceMe.swift */,
+				7F849E781DFD51FA00E937F8 /* PlugAndChugChart.swift */,
+				7F849E7C1DFD531B00E937F8 /* PlugAndChugChartComponent.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -353,8 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F849E7D1DFD531B00E937F8 /* PlugAndChugChartComponent.swift in Sources */,
 				024A7718D04FD188F6583DE2E7AABA6D /* PlugAndChugChart-dummy.m in Sources */,
-				24F764F954C9423B9995045D7ACA4102 /* ReplaceMe.swift in Sources */,
+				7F849E791DFD51FA00E937F8 /* PlugAndChugChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCE52DC74429457920C8F9C48824A9C9 /* PlugAndChugChart.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -605,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCE52DC74429457920C8F9C48824A9C9 /* PlugAndChugChart.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
