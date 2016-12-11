@@ -10,30 +10,30 @@ import UIKit
 
 // MARK: - Enumeration
 
-enum GraghStyle {
+public enum GraghStyle {
     case bar, round, jaggy
 }
 
-enum GraghViewDateStyle {
+public enum GraghViewDateStyle {
     case year, month, day, hour, minute, second
 }
 
-enum GraghViewDataType {
+public enum GraghViewDataType {
     case normal, yen
 }
 
-enum GraghViewContetOffset {
+public enum GraghViewContetOffset {
     case minimumDate, maximizeDate
 }
 
-enum GraghViewDataLabelType {
+public enum GraghViewDataLabelType {
     case `default`, date
 }
 
 
 // MARK: - GraghView Class
 
-class GraghView: UIScrollView {
+public class GraghView: UIScrollView {
     
     // MARK: - Private properties
     
@@ -133,14 +133,14 @@ class GraghView: UIScrollView {
     }
     
     // storyboardで生成する時
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     
     // MARK: - Override
     
-    override var contentOffset: CGPoint {
+    override public var contentOffset: CGPoint {
         didSet {
             if !comparisonValueIsHidden {
                 // ComparisonValueLabelをスクロールとともに追従させる
@@ -281,7 +281,7 @@ class GraghView: UIScrollView {
     
     // MARK: - Public methods
     
-    func loadGraghView() {
+    public func loadGraghView() {
         
         switch dataLabelType {
         case .default: drawComponentsOfTextLabel()
@@ -339,7 +339,7 @@ class GraghView: UIScrollView {
         }
     }
     
-    func reloadGraghView() {
+    public func reloadGraghView() {
         // GraghViewの初期化
         subviews.forEach { $0.removeFromSuperview() }
         contentSize = .zero
@@ -349,56 +349,56 @@ class GraghView: UIScrollView {
     
     // MARK: Set Gragh Customize Options
     
-    func setComparisonValueLabel(backgroundColor: UIColor) {
+    public func setComparisonValueLabel(backgroundColor: UIColor) {
         layout.comparisonLabelBackgroundColor = backgroundColor
     }
     
-    func setComparisonValueLine(color: UIColor) {
+    public func setComparisonValueLine(color: UIColor) {
         layout.comparisonLineColor = color
     }
     
     // BarのLayoutProportionはGraghViewから変更する
-    func setComponentArea(width: CGFloat) {
+    public func setComponentArea(width: CGFloat) {
         componentLayout.componentAreaWidth = width
     }
     
-    func setBarAreaHeight(rate: CGFloat) {
+    public func setBarAreaHeight(rate: CGFloat) {
         componentLayout.barAreaHeightRate = rate
     }
     
-    func setMaxGraghValue(rate: CGFloat) {
+    public func setMaxGraghValue(rate: CGFloat) {
         componentLayout.maxGraghValueRate = rate
     }
     
-    func setBarWidth(rate: CGFloat) {
+    public func setBarWidth(rate: CGFloat) {
         componentLayout.barWidthRate = rate
     }
     
-    func setBar(color: UIColor) {
+    public func setBar(color: UIColor) {
         componentLayout.barColor = color
     }
     
-    func setLabel(backgroundcolor: UIColor) {
+    public func setLabel(backgroundcolor: UIColor) {
         componentLayout.labelBackgroundColor = backgroundcolor
     }
     
-    func setGragh(backgroundcolor: UIColor) {
+    public func setGragh(backgroundcolor: UIColor) {
         componentLayout.GraghBackgroundColor = backgroundcolor
     }
     
-    func setRoundSize(rate: CGFloat) {
+    public func setRoundSize(rate: CGFloat) {
         componentLayout.roundSizeRate = rate
     }
     
-    func setRound(color: UIColor) {
+    public func setRound(color: UIColor) {
         componentLayout.roundColor = color
     }
     
-    func setRoundIsHidden(bool: Bool) {
+    public func setRoundIsHidden(bool: Bool) {
         componentLayout.onlyPathLine = bool
     }
     
-    func setValueLabelIsHidden(bool: Bool) {
+    public func setValueLabelIsHidden(bool: Bool) {
         componentLayout.valueLabelIsHidden = bool
     }
     
