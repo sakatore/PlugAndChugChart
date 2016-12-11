@@ -14,7 +14,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		F37760C7BF5317F71637E837 /* Pods_PlugAndChugChart_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D083C7C95A055C9BF6C55A /* Pods_PlugAndChugChart_Tests.framework */; };
+		BA9C2626C2894D635B687F93 /* Pods_PlugAndChugChart_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D083C7C95A055C9BF6C55A /* Pods_PlugAndChugChart_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A8796DC79863DDE9A2E01B5 /* Pods-PlugAndChugChart_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlugAndChugChart_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3B9F5E489A565973A6D1187B /* PlugAndChugChart.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PlugAndChugChart.podspec; path = ../PlugAndChugChart.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* PlugAndChugChart_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlugAndChugChart_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,8 +43,9 @@
 		714D7AABB9017BDD21E5CABF /* Pods-PlugAndChugChart_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlugAndChugChart_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlugAndChugChart_Example/Pods-PlugAndChugChart_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7250CBA13BE8FB3F9EF12C97 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		812B7E953E1C230047E34036 /* Pods-PlugAndChugChart_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlugAndChugChart_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlugAndChugChart_Example/Pods-PlugAndChugChart_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		8D4A412D47846ABBEE5D0D2B /* Pods-PlugAndChugChart_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlugAndChugChart_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B19DBD5373A93BD5D64B8628 /* Pods-PlugAndChugChart_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlugAndChugChart_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C5FD4C4911800C3A90AEFFD9 /* Pods_PlugAndChugChart_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlugAndChugChart_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C680FDD69F4FFE882078A94A /* Pods-PlugAndChugChart_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlugAndChugChart_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FC5C0543B1EA4F95AF0EC0C7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F37760C7BF5317F71637E837 /* Pods_PlugAndChugChart_Tests.framework in Frameworks */,
+				BA9C2626C2894D635B687F93 /* Pods_PlugAndChugChart_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +144,8 @@
 			children = (
 				812B7E953E1C230047E34036 /* Pods-PlugAndChugChart_Example.debug.xcconfig */,
 				714D7AABB9017BDD21E5CABF /* Pods-PlugAndChugChart_Example.release.xcconfig */,
-				8D4A412D47846ABBEE5D0D2B /* Pods-PlugAndChugChart_Tests.debug.xcconfig */,
-				0A8796DC79863DDE9A2E01B5 /* Pods-PlugAndChugChart_Tests.release.xcconfig */,
+				B19DBD5373A93BD5D64B8628 /* Pods-PlugAndChugChart_Tests.debug.xcconfig */,
+				C680FDD69F4FFE882078A94A /* Pods-PlugAndChugChart_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -186,12 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "PlugAndChugChart_Tests" */;
 			buildPhases = (
-				3DF8790A84D625E61572373B /* [CP] Check Pods Manifest.lock */,
+				01C415DE36D6705B1B8CE9B9 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				5BEEE3CBA5F41E23BF821CE4 /* [CP] Embed Pods Frameworks */,
-				FFBC2E3D61E649AAC50CF612 /* [CP] Copy Pods Resources */,
+				B66470417A242460B8856C92 /* [CP] Embed Pods Frameworks */,
+				143EDD9FE47DDD19DC38FBAF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,7 +210,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -264,7 +264,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DF8790A84D625E61572373B /* [CP] Check Pods Manifest.lock */ = {
+		01C415DE36D6705B1B8CE9B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,19 +279,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5BEEE3CBA5F41E23BF821CE4 /* [CP] Embed Pods Frameworks */ = {
+		143EDD9FE47DDD19DC38FBAF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		96BEFFC154A283D873C76D11 /* [CP] Embed Pods Frameworks */ = {
@@ -307,6 +307,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlugAndChugChart_Example/Pods-PlugAndChugChart_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B66470417A242460B8856C92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4008DB29916A8F58BC31D7C /* [CP] Check Pods Manifest.lock */ = {
@@ -337,21 +352,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlugAndChugChart_Example/Pods-PlugAndChugChart_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FFBC2E3D61E649AAC50CF612 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlugAndChugChart_Tests/Pods-PlugAndChugChart_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -417,8 +417,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -462,8 +464,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -482,6 +486,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -516,7 +521,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D4A412D47846ABBEE5D0D2B /* Pods-PlugAndChugChart_Tests.debug.xcconfig */;
+			baseConfigurationReference = B19DBD5373A93BD5D64B8628 /* Pods-PlugAndChugChart_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -536,7 +541,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A8796DC79863DDE9A2E01B5 /* Pods-PlugAndChugChart_Tests.release.xcconfig */;
+			baseConfigurationReference = C680FDD69F4FFE882078A94A /* Pods-PlugAndChugChart_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
