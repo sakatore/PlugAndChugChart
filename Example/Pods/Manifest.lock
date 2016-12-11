@@ -1,0 +1,16 @@
+PODS:
+  - PlugAndChugChart (0.1.0)
+
+DEPENDENCIES:
+  - PlugAndChugChart (from `../`)
+
+EXTERNAL SOURCES:
+  PlugAndChugChart:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PlugAndChugChart: 352312fec410f121b63b5ea02cdef9444404c732
+
+PODFILE CHECKSUM: d74f8e2f8625d4de6913f02eb3b0015a0fc87eaa
+
+COCOAPODS: 1.2.0.beta.1
